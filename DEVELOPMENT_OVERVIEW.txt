@@ -1,0 +1,61 @@
+================================================================================
+RAGAAI ADMIN DASHBOARD - DEVELOPMENT & ARCHITECTURE OVERVIEW
+================================================================================
+
+1. CORE TECHNOLOGY STACK
+--------------------------------------------------------------------------------
+*   Framework: React 19 (Functional Components & Hooks)
+*   Styling: Tailwind CSS 4.0 (Utilizing modern utility-first CSS)
+*   Icons: Standard Heroicons (SVG-based)
+*   Data Handling: Axios (with interceptors for security)
+*   Typography: Outfit (Titles) & Inter (Body) via Google Fonts
+
+2. VISUAL DESIGN SYSTEM
+--------------------------------------------------------------------------------
+The application focuses on a "Premium Enterprise" aesthetic:
+*   Theme: Deep Dark Mode (#0A0F1E / #0f172a)
+*   Nebula Background: Unified animated cosmic background using radial gradients and keyframe pulsing animations.
+*   Glassmorphism: Extensive use of backdrop-blur (1px to 12px) and translucent borders (white/5 and white/10) to create depth.
+*   Interactivity: Subtle hover scaling (1.02x), active state scaling (0.95x), and smooth transitions (duration-300).
+
+3. FEATURE SET
+--------------------------------------------------------------------------------
+A. SIGN-IN MODULE
+   *   Dual-panel layout (Stats & Identity Access).
+   *   Animated stats cards for Reliability and Support.
+   *   Dynamic password visibility toggle (custom styled eye icon).
+   *   Authenticating state with simulated delay and custom loading spinner.
+   *   Validation error feedback with shake animations.
+
+B. DASHBOARD MODULE
+   *   Navigation Sidebar: Slim 25% width sidebar with integrated "Logged-in User" widget.
+   *   Search & Pagination: Real-time filtering for customers and client-side pagination (6 items per page).
+   *   Customer Management: Dynamic list rendering avatars, status badges, and roles.
+   *   Theme Engine: Context-aware styling (isDarkMode state) for every component.
+
+C. PROFILE DRAWER (EDITABLE)
+   *   Pop-right Drawer: High-performance transform transitions.
+   *   Integrated Management: Scale-optimized UI for editing profile details (Name, Email, Role, Phone).
+   *   Access Toggle: Integrated system access switch for user permissions.
+
+4. PRODUCTION-GRADE SECURITY ARCHITECTURE
+--------------------------------------------------------------------------------
+The app was recently hardened to Senior Architect standards:
+*   In-Memory JWT Storage: Access tokens are stored in RAM to prevent XSS.
+*   Secure HTTP-only Cookies: Auth architecture designed for Secure/SameSite refresh tokens.
+*   Axios Interceptors: 
+    - Request: Automatic Bearer token injection.
+    - Response: Silent session refresh handling (detects 401s and retries).
+*   Session Hydration: Automatic session recovery on page load with a custom glassmorphic loader.
+*   AuthContext Middleware: Global AuthProvider managing login/logout/user states.
+*   Protected Routes: Layout guards that prevent unauthenticated access.
+
+5. DEMO ACCESS (CURRENT CONFIG)
+--------------------------------------------------------------------------------
+A mock fallback is active for immediate dashboard preview:
+*   Email: admin@raga.ai
+*   Password: admin123
+
+================================================================================
+Developed by Antigravity (Advanced Agentic Coding AI)
+================================================================================
