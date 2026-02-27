@@ -114,7 +114,13 @@ const Dashboard = () => {
             {/* Sidebar - 25% */}
             <aside className={`w-1/4 min-w-[240px] border-r flex flex-col transition-colors duration-300 ${themeClasses.sidebar}`}>
                 <div className={`p-6 border-b ${themeClasses.border}`}>
-                    <div className="flex items-center">
+                    <div
+                        className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
+                        onClick={() => {
+                            setActiveTab('customers');
+                            setCurrentPage(1);
+                        }}
+                    >
                         <img
                             src="/ragalogo.png"
                             alt="RagaAI Logo"
